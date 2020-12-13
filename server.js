@@ -6,7 +6,7 @@ import Videos from './dbModel.js';
 
 // app config
 const app = express();
-const port = process.env.PORT || 9000;
+const port = 9000;
 
 // middlewares
 // pass the response of json object and read it for me
@@ -42,7 +42,7 @@ app.get("/v1/posts", (req, res) => res.status(200).send(Data));
 
 app.get("/v2/posts", (req, res) => {
   // you can use filter: find({filter here}, (err, data)...)
-  Videos.find((err, data) => {
+  Videos.find({}, (err, data) => {
     if (err) {
       res.status(500).send(err);
     } else {
