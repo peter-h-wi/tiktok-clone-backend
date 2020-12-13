@@ -14,7 +14,7 @@ const port = process.env.PORT || 9000;
 app.use(express.json());
 // whenever we receive request, we will set headers, which means we accept all requests that pass middlewares.
 // then we pop to the functions in here
-app.use((res, req, next) => {
+app.use((response, req, next) => {
   res.setHeaders('Access-Control-Allow-Origin', '*'),
   res.setHeaders('Access-Control-Allow-Headers', '*'),
   next();
